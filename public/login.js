@@ -9,6 +9,8 @@ const form = document.getElementById("loginForm");
 const message = document.getElementById("message");
 const rememberEmailCheckbox = document.getElementById("rememberEmail");
 const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const capsWarning = document.getElementById("capsWarning");
 
 // Load remembered email on page load
 const savedEmail = localStorage.getItem("rememberedEmail");
@@ -16,6 +18,17 @@ if (savedEmail && emailInput && rememberEmailCheckbox) {
   emailInput.value = savedEmail;
   rememberEmailCheckbox.checked = true;
 }
+
+// Caps Lock warning while typing password
+passwordInput?.addEventListener("keyup", (e) => {
+  if (!capsWarning) return;
+
+  if (e.getModifierState && e.getModifierState("CapsLock")) {
+    capsWarning.style.display = "block";
+  } else {
+    capsWarning.style.display = "none";
+  }
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
