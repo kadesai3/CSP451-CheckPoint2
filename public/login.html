@@ -17,10 +17,20 @@
         <input type="email" id="email" name="email" placeholder="you@example.com" required />
       </label>
 
+      <label style="display: flex; align-items: center; gap: 6px; margin-top: 8px;">
+        <input type="checkbox" id="rememberEmail" />
+        Remember email
+      </label>
+
       <label>
         Password
         <input type="password" id="password" name="password" placeholder="••••••••" required minlength="6" />
       </label>
+
+      <p id="capsWarning" class="muted" style="color: orange; display: none;">
+      ⚠ Caps Lock is ON
+      </p>
+
 
       <button type="submit">Sign in</button>
       <p id="message" class="muted"></p>
